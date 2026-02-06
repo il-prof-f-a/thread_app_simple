@@ -1,0 +1,24 @@
+classDiagram
+direction TB
+    class ProgressBar {
+	    -value
+    }
+
+    class Thread {
+    }
+
+    class ProgressBarManager {
+	    +ProgressBarManager(progressBar: ProgressBar)
+	    -avanza(incremento:int) : void
+	    +run() : void
+    }
+
+    class Main {
+	    +avviaProgressBar() : void
+	    +istanziaProgressBar() : void
+    }
+
+    ProgressBarManager --|> Thread
+    ProgressBarManager o-- "1" ProgressBar
+    Main o-- "4" ProgressBarManager
+    Main *-- "4" ProgressBar
